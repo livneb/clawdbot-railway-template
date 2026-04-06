@@ -63,6 +63,9 @@ ENV PNPM_HOME=/data/pnpm
 ENV PNPM_STORE_DIR=/data/pnpm-store
 ENV PATH="/data/npm/bin:/data/pnpm:${PATH}"
 
+# Persist SSH keys across container restarts via mounted /data volume
+RUN ln -sf /data/.ssh /root/.ssh
+
 WORKDIR /app
 
 # Wrapper deps
